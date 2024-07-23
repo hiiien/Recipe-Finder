@@ -15,20 +15,22 @@ app.get("/", (req, res) => {
 
 app.post("/recipes", async (req, res) => {
     const recipe = req.body.recipe;
+    console.log(recipe);
     const url = `https://api.edamam.com/api/recipes/v2?q=${recipe}&app_id=${process.env.RECIPE_APP_ID}&app_key=${process.env.RECIPE_APP_KEY}&type=public` 
     try {
         const response = await axios.get(url);
-        res.send(response.data);
+        //console.log(response.data);
+        res.render("index.ejs", {recipes: response.data});
+        // res.send(response.data);
     } catch (error) {
         res.send(error.response.data);
     }
 });
 
-app.post("/item-nutrition", async (req, res) => {
-    const ingr = req.body.ingr;
-    const url = `https://api.edamam.com/api/nutrition-data?ingr=${ingr}&app_id=${process.env.NUTRITION_APP_ID}&app_key=${process.env.NUTRITION_APP_KEY}&nutrition-type=logging`
-})
-
+// app.post("/item-nutrition", async (req, res) => {
+//     const ingr = req.body.ingr;
+//     const url = `https://api.edamam.com/api/nutrition-data?ingr=${ingr}&app_id=${process.env.NUTRITION_APP_ID}&app_key=${process.env.NUTRITION_APP_KEY}&nutrition-type=logging`
+// })
 
 
 app.listen(port, () => {

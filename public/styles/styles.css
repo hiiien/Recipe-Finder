@@ -155,7 +155,7 @@ html, body {
 }
 
 .box{
-  height: 400px;
+  min-height: 400px;
   width: 20vw;
   padding: 10px;
   border: solid 2px var(--accent-color);

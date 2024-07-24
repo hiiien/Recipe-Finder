@@ -10,7 +10,8 @@
 <body>
     <%-include("partials/header.ejs"); %>
     <% if(locals.recipes){ %>
-        <% for(var i = recipes.from; i < recipes.to; i++){ %>
+        <% for(var i = 0; i <= (recipes.to - recipes.from); i++){ %>
+            <%= console.log(i);  %>
     <div class="recipe-page">
         <div class="ingredients-recipe-page">
             <h2><%=recipes.hits[i].recipe.label%></h2>
@@ -79,7 +80,14 @@
             </div>
         </div>
     <% } %>
-    
+
+    <% if(locals.recipes) { %>
+        <% if(recipes._links.next){ %>
+    <form action="/next" method="POST">
+        <input type="hidden" name="url" value="<%= recipes._links.next.href %>">
+        <button>Next Page</button>
+    </form>
+    <% } }%>
 </body>
 </html>
 

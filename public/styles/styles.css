@@ -10,12 +10,20 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .topnav {
     overflow: hidden;
     background-color: var(--primary-color);
     border-bottom: solid 1px var(--accent-color);
     display: flex;
-    width: 100vw;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   
   .topnav a {
@@ -51,10 +59,8 @@
     margin-top: 8px;
     font-size: 17px;
     margin-bottom: 8px;
-    border: none;
     border-radius: 10px 0px 0px 10px;
     border: solid var(--accent-color) 1px;
-    border-right: 0px;
   }
   
   .topnav .search-container button {

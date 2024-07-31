@@ -3,6 +3,13 @@
     --secondary-color: #000000;
     --accent-color: #E7C27D;
     --offwhite-color: #e9e9e9;
+    --xxs: .25rem;
+    --xs: .5rem;
+    --s: .75rem;
+    --m: 1rem;
+    --l: 1.25rem;
+    --xl: 1.75rem;
+    --xxl: 2.5rem;
 }
 
 * {

@@ -11,82 +11,64 @@
     <%-include("partials/header.ejs"); %>
     <% if(locals.recipes){ %>
         <% for(var i = 0; i <= (recipes.to - recipes.from); i++){ %>
-            <%= console.log(i);  %>
-    <div class="recipe-page">
-        <div class="ingredients-recipe-page">
-            <h2><%=recipes.hits[i].recipe.label%></h2>
-            <h3>Ingredients:</h3>
-            <ul>
-                <% recipes.hits[i].recipe.ingredientLines.forEach(ingredient => { %>
-                    <li><%=ingredient%></li>
-            <%    }); %>
-            </ul>
-            <p>Makes <%=recipes.hits[i].recipe.yield%> Servings</p>
+            <div class="recipe-page">
+                <div class="ingredients-recipe-page">
+                    <h2><%=recipes.hits[i].recipe.label%></h2>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <% recipes.hits[i].recipe.ingredientLines.forEach(ingredient => { %>
+                            <li><%=ingredient%></li>
+                    <%    }); %>
+                    </ul>
+                    <p>Makes <%=recipes.hits[i].recipe.yield%> Servings</p>
 
-            <div class="total-nutrients-grid">
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.label%> </h4>
-                    <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.unit %></p>
+                    <div class="total-nutrients-grid">
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.label%> </h4>
+                            <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.ENERC_KCAL.unit %></p>
+                        </div>
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.FAT.label%> </h4>
+                            <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.FAT.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.FAT.unit %></p>
+                        </div>
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.CHOCDF.label%> </h4>
+                            <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.CHOCDF.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.CHOCDF.unit %></p>
+                        </div>
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.SUGAR.label%> </h4>
+                            <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.SUGAR.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.SUGAR.unit %></p>
+                        </div>
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.PROCNT.label%> </h4>
+                            <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.PROCNT.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.PROCNT.unit %></p>
+                        </div>
+                        <div class="card">
+                            <h4> <%=recipes.hits[i].recipe.totalNutrients.NA.label%> </h4>
+                            <p>Amount Per Serving: <%=(recipes.hits[i].recipe.totalNutrients.NA.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
+                            <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.NA.unit %></p>
+                        </div>
+                    </div>
+                    <span>Full recipe at: <a href="<%= recipes.hits[i].recipe.url %>"><%= recipes.hits[i].recipe.url %></a></span>
                 </div>
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.FAT.label%> </h4>
-                    <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.FAT.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.FAT.unit %></p>
-                </div>
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.CHOCDF.label%> </h4>
-                    <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.CHOCDF.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.CHOCDF.unit %></p>
-                </div>
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.SUGAR.label%> </h4>
-                    <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.SUGAR.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.SUGAR.unit %></p>
-                </div>
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.PROCNT.label%> </h4>
-                    <p>Amount Per Serving: <%= (recipes.hits[i].recipe.totalNutrients.PROCNT.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.PROCNT.unit %></p>
-                </div>
-                <div class="card">
-                    <h4> <%=recipes.hits[i].recipe.totalNutrients.NA.label%> </h4>
-                    <p>Amount Per Serving: <%=(recipes.hits[i].recipe.totalNutrients.NA.quantity / recipes.hits[i].recipe.yield).toFixed(2)%></p>
-                    <p>Unit: <%= recipes.hits[i].recipe.totalNutrients.NA.unit %></p>
+                <div class="image-recipe-page">
+                <img height="<%=recipes.hits[i].recipe.images.REGULAR.height * 2%>" width="<%=recipes.hits[i].recipe.images.REGULAR.width * 2%>" src="<%=recipes.hits[i].recipe.images.REGULAR.url%>" alt="<%=recipes.hits[i].recipe.label%>"> 
+                <!-- <img height="<%//=recipes.hits[0].recipe.images.REGULAR.height%>" width="<%=//recipes.hits[0].recipe.images.REGULAR.width%>" src="<%=//recipes.hits[0].recipe.images.REGULAR.url%>" alt="">  -->
                 </div>
             </div>
-            <span>Full recipe at: <a href="<%= recipes.hits[i].recipe.url %>"><%= recipes.hits[i].recipe.url %></a></span>
-        </div>
-        <div class="image-recipe-page">
-           <img height="<%=recipes.hits[i].recipe.images.REGULAR.height * 2%>" width="<%=recipes.hits[i].recipe.images.REGULAR.width * 2%>" src="<%=recipes.hits[i].recipe.images.REGULAR.url%>" alt="<%=recipes.hits[i].recipe.label%>"> 
-           <!-- <img height="<%//=recipes.hits[0].recipe.images.REGULAR.height%>" width="<%=//recipes.hits[0].recipe.images.REGULAR.width%>" src="<%=//recipes.hits[0].recipe.images.REGULAR.url%>" alt="">  -->
-        </div>
-    </div>
-        <%} }  else{ %>
-        <div class="home-display">
-            <div class="about-display box">
-                <h2>About this Website.</h2>
-                <p>
-                    Welcome to Recipe Finder, your go-to website for finding the perfect recipes for any occasion! Simply enter the ingredients you have on hand or the type of 
-                    dish you're craving into our search bar, and we'll provide you with a curated list of delicious recipes. Each recipe comes with detailed information including 
-                    ingredients, step-by-step instructions, cooking times, and nutritional facts. Our user-friendly interface ensures that you can quickly and easily find recipes that
-                    suit your dietary preferences and cooking skills. Whether you're a novice cook or a seasoned chef, Recipe Finder makes meal planning and cooking a breeze!</p>
-            </div>
-            <div class="personal-display box">
-                <h2>About Me.</h2>
-                <p>I am a college student currently learning fullstack development. This website is a practice exercise in using APIs aswell as working on already existing skills 
-                    such as using node.js with express.js and axios, js, css, and html for webdev. You can find more of my work at my <span><a href="https://github.com/hiiien">GitHub</a></span>
-                </p>
-            </div>
-        </div>
-    <% } %>
+         <%} }  %> 
 
     <% if(locals.recipes) { %>
         <% if(recipes._links.next){ %>
-    <form action="/next" method="POST">
-        <input type="hidden" name="url" value="<%= recipes._links.next.href %>">
-        <button>Next Page</button>
-    </form>
+            <form action="/next" method="POST">
+                <input type="hidden" name="url" value="<%= recipes._links.next.href %>">
+                <button>Next Page</button>
+            </form>
     <% } }%>
 </body>
 </html>
